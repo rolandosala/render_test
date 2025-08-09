@@ -13,13 +13,15 @@ const db = mysql.createConnection({
 });
 
 
-db.connect(err => {
-  if (err) throw err;
-  console.log("Connected to Clever Cloud MySQL!");
-});
+
 
 app.get("/", (req, res) => {
-  res.send("Change by ROlando Sala");
+  db.connect(err => {
+    if (err) throw err;
+    res.json({ message: "Connected to MySQL!" });
+    console.log("Connected to Clever Cloud MySQL!");
+  });
+  
 });
 
 app.listen(PORT, () => console.log(`Server running on port ${PORT}`));
