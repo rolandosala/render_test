@@ -16,7 +16,7 @@ const db = mysql.createPool({
   queueLimit: 0
 });
 
-app.get("/", async (req, res) => {
+app.get("/fetchdata", async (req, res) => {
   try {
     const [rows] = await db.query("SELECT * FROM sample_tbl");
     res.json(rows);
