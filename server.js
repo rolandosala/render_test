@@ -12,9 +12,7 @@ const PORT = process.env.PORT || 3000;
   credentials: true
 })); */
 app.use(express.json());
-app.use(cors({
-  origin: "http://localhost:5173",
-}));
+app.use(cors());
 const db = mysql.createPool({
   host: process.env.MYSQL_ADDON_HOST,
   user: process.env.MYSQL_ADDON_USER,
